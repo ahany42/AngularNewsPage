@@ -1,6 +1,6 @@
 import { Component,OnInit} from '@angular/core';
 import { News } from 'src/app/news';
-import { DataService } from 'src/app/my-news.service';
+import { MyNewsService} from 'src/app/my-news.service';
 @Component({
   selector: 'app-my-news',
   templateUrl: './my-news.component.html',
@@ -8,7 +8,7 @@ import { DataService } from 'src/app/my-news.service';
 })
 export class MyNewsComponent implements OnInit{
  data :News[]=[];
- constructor(private myNewsService :DataService){}
+ constructor(private myNewsService :MyNewsService){}
  ngOnInit():void{
   this.myNewsService.getData().subscribe(
   (response)=>{

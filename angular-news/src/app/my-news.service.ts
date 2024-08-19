@@ -5,7 +5,7 @@ import { News } from './news';
 @Injectable({
   providedIn: 'root'
 })
-export class DataService {
+export class MyNewsService {
 
   private apiUrl = 'http://localhost:3004/news/myNews/3'; 
 

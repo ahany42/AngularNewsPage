@@ -15,3 +15,10 @@
     font-weight: 600;
     font-style: normal;
   }
+  .CardList{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .CardComponent{
+    margin:20px;
+  }

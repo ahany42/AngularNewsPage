@@ -1,4 +1,4 @@
-<div>
-   <app-news-card class="card" *ngFor="let news of data" [news]="news" >
+<div class="CardList">
+   <app-news-card class="card CardComponent" *ngFor="let news of data" [news]="news" [MyNews]="true" >
    </app-news-card>
 </div>

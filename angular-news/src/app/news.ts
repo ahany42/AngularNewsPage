@@ -4,4 +4,5 @@ export interface News {
     date: string;
     color: string;
     postedBy: number;
+    avatar:string;
 }
