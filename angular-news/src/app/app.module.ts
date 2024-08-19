@@ -10,7 +10,8 @@ import { HomeLayoutComponent } from './Components/home-layout/home-layout.compon
 import { HomeComponent } from './Components/home/home.component';
 import { NewsCardComponent } from './Components/news-card/news-card.component';
 import { NewsListComponent } from './Components/news-list/news-list.component';
-import { HttpClientModule } from '@angular/common/http';  
+import { HttpClientModule } from '@angular/common/http';
+import { PlaceholderComponent } from './Components/placeholder/placeholder.component';  
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     MyNewsComponent,
     HomeLayoutComponent,
     NewsCardComponent,
-    NewsListComponent
+    NewsListComponent,
+    PlaceholderComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,12 @@
+.placeholderContainer{
+    width: 100%;
+    text-align: center; 
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+img{
+    width:400px;
+   
+}

@@ -1,3 +1,6 @@
+<div *ngIf="data.length===0">
+    <app-placeholder></app-placeholder>
+  </div>
 <div class="CardList">
     <app-news-card class="card CardComponent" *ngFor="let news of data" [news]="news" >
     </app-news-card>

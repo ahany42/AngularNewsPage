@@ -1,4 +1,4 @@
-import { Component,Input,OnInit } from '@angular/core';
+import { Component,Input,OnInit, Output } from '@angular/core';
 import { News } from 'src/app/news';
 import { loggedInUserService } from 'src/app/logged-in-user.service';
 import { User } from 'src/app/user';
@@ -10,6 +10,7 @@ import { User } from 'src/app/user';
 export class NewsCardComponent implements OnInit{
   @Input() news!:News;
   @Input() MyNews!:boolean;
+  @Output() NewsList! : News[];
   userId : number | undefined;
   constructor(private userService: loggedInUserService) {}
   ngOnInit(): void {
@@ -21,5 +22,17 @@ export class NewsCardComponent implements OnInit{
         console.error('Error Fetching User Data', error);
       }
     );
+}
+ async DeleteNews(id:number){
+  try {
+    const response = await fetch(`http://localhost:3004/news/delete/${id}`, {
+      method: 'DELETE',
+    });
+    if (!response.ok) {
+      throw new Error(`Error: ${response.statusText}`);
+    }
+  } catch (error) {
+    console.error('Error deleting item:', error);
+  }
 }
 }

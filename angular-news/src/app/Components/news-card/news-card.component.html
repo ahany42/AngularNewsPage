@@ -6,7 +6,7 @@
         <div class="card-body" [ngStyle]="{'background-color': news.color}">{{news.body}}
         </div>
         <div class="card-footer"[ngStyle]="{'background-color': news.color}">
-        <button class="DeleteButton" *ngIf="userId === news.postedBy">Delete</button>
+        <button class="DeleteButton" (click)="DeleteNews(news.id)" *ngIf="userId === news.postedBy">Delete</button>
     </div>
   </div>
   
