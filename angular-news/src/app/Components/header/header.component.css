@@ -7,7 +7,7 @@
     align-items: center;
 }
 .NavBar{
-    width:40%;
+    width:50%;
     margin: auto;
     display: flex;
     justify-content: space-evenly;

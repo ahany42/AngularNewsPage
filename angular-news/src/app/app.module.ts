@@ -8,6 +8,9 @@ import { PageNotFoundComponent } from './Components/page-not-found/page-not-foun
 import { MyNewsComponent } from './Components/my-news/my-news.component';
 import { HomeLayoutComponent } from './Components/home-layout/home-layout.component';
 import { HomeComponent } from './Components/home/home.component';
+import { NewsCardComponent } from './Components/news-card/news-card.component';
+import { NewsListComponent } from './Components/news-list/news-list.component';
+import { HttpClientModule } from '@angular/common/http';  
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,11 +19,14 @@ import { HomeComponent } from './Components/home/home.component';
     AboutComponent,
     PageNotFoundComponent,
     MyNewsComponent,
-    HomeLayoutComponent
+    HomeLayoutComponent,
+    NewsCardComponent,
+    NewsListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule
   ],
 
   providers: [],
