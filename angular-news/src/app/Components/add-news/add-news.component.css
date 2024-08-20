@@ -1,0 +1,17 @@
+form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width:50%;
+    margin: auto;
+}
+h6{
+    text-align: center;
+}
+.AddNewsContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width:50%;
+    margin: auto;
+}

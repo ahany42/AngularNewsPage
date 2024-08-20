@@ -18,6 +18,7 @@
   .CardList{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
   }
   .CardComponent{
     margin:20px;
