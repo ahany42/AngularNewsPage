@@ -1,6 +1,7 @@
-import { Component,OnInit} from '@angular/core';
+import { Component,OnInit,Input} from '@angular/core';
 import { News } from 'src/app/news';
 import { MyNewsService} from 'src/app/my-news.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-my-news',
   templateUrl: './my-news.component.html',
@@ -8,7 +9,8 @@ import { MyNewsService} from 'src/app/my-news.service';
 })
 export class MyNewsComponent implements OnInit{
  data :News[]=[];
- constructor(private myNewsService :MyNewsService){}
+ 
+ constructor(private myNewsService :MyNewsService,private router:Router){}
  ngOnInit():void{
   this.myNewsService.getData().subscribe(
   (response)=>{
@@ -36,4 +38,9 @@ export class MyNewsComponent implements OnInit{
     console.error('Error deleting item:', error);
   }
  }
+
+  EditNews(id: number) {
+    this.router.navigate([`/editnews/${id}`]);
+  }
+ 
 }

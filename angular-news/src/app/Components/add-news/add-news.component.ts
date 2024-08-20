@@ -1,13 +1,30 @@
-import { Component } from '@angular/core';
+import { Component ,Input, OnInit} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import {News} from 'src/app/news';
 @Component({
   selector: 'app-add-news',
   templateUrl: './add-news.component.html',
   styleUrls: ['./add-news.component.css']
 })
 
-export class AddNewsComponent {
+export class AddNewsComponent implements OnInit {
+  @Input () edit:boolean=false;
+  @Input() id: number | null = null;
+ ngOnInit() {
+  if(this.id!==null){
+    this.http.get(`http://localhost:3004/news/${this.id}`)
+    .subscribe(response=> {
+      console.log('Got News successfully:', response);
+      let newsToBeEdited = response as News;
+      this.newsTitle=newsToBeEdited.title;
+      this.newsDescription=newsToBeEdited.body;
+    }, error => {
+      console.error('Error getting news:', error);
+    });
+  }
+}
+
   FormatDate() {
     const now = new Date(); 
     const day = String(now.getDate()).padStart(2, '0');
@@ -16,8 +33,8 @@ export class AddNewsComponent {
   
     return `${day}-${month}-${year}`;
   }
-  newsTitle: string = '';
-  newsDescription: string = '';
+  newsTitle: any = '';
+  newsDescription: any = '';
   constructor(private http: HttpClient,private router:Router) {}
   AddNews(NewsTitle:HTMLInputElement,NewsDescription:HTMLTextAreaElement) {
     if(NewsTitle.value && NewsDescription.value){
@@ -39,6 +56,27 @@ export class AddNewsComponent {
       });
       NewsTitle.value="";
       NewsDescription.value="";
+      this.router.navigate(['/MyNews']);
+    }
+    else{
+      alert("Please Fill All Fields");
+    }
+  }
+  EditNews(NewsTitle:HTMLInputElement,NewsDescription:HTMLTextAreaElement){
+      NewsTitle.value = this.newsTitle;
+      NewsDescription.value = this.newsDescription;
+    if(NewsTitle.value && NewsDescription.value){
+      const editedNews = {
+       title:NewsTitle.value,
+       body:NewsDescription.value
+      };
+    
+      this.http.patch(`http://localhost:3004/news/edit/${this.id}`, editedNews )
+      .subscribe(response => {
+        console.log('News edited successfully:', response);
+      }, error => {
+        console.error('Error editing news:', error);
+      });
       this.router.navigate(['/MyNews']);
     }
     else{

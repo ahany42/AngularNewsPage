@@ -24,13 +24,17 @@
     justify-content: center;
     border: none;
 }
-.DeleteButton{
+.DeleteButton,.EditButton{
     width:60px;
+    font-size: 12px;
+}
+.DeleteButton{
     background-color:#d11a2a;
     color:white;
     border-color: #d11a2a;
-    font-size: 12px;
+    margin-right: 5px;
 }
+
 .UserAvatar{
     border-radius:auto;
     width:40px;

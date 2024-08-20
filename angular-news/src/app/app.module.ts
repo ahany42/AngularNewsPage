@@ -13,7 +13,8 @@ import { NewsListComponent } from './Components/news-list/news-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PlaceholderComponent } from './Components/placeholder/placeholder.component';
 import { AddNewsComponent } from './Components/add-news/add-news.component';
-import { AddNewsButtonComponent } from './Components/add-news-button/add-news-button.component';  
+import { AddNewsButtonComponent } from './Components/add-news-button/add-news-button.component';
+import { EditNewsComponent } from './Components/edit-news/edit-news.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,8 @@ import { AddNewsButtonComponent } from './Components/add-news-button/add-news-bu
     NewsListComponent,
     PlaceholderComponent,
     AddNewsComponent,
-    AddNewsButtonComponent
+    AddNewsButtonComponent,
+    EditNewsComponent,
   ],
   imports: [
     BrowserModule,

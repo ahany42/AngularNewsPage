@@ -17,7 +17,10 @@
             {{news.body}}
         </div>
         <div class="card-footer"[ngStyle]="{'background-color': '#c4dee3'}">
-        <button class="DeleteButton" (click)="DeleteNews()" *ngIf="userId === news.postedBy">Delete</button>
+            <div class="ButtonContainer" *ngIf="userId === news.postedBy">
+                <button class="DeleteButton" (click)="DeleteNews()">Delete</button>
+                <button class="EditButton" (click)="EditNews()">Edit</button> 
+            </div>
     </div>
   </div>
   

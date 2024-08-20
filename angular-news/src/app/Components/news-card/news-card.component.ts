@@ -11,6 +11,7 @@ export class NewsCardComponent implements OnInit{
   @Input() news!:News;
   @Input() MyNews!:boolean;
   @Output() delete = new EventEmitter<number>();
+  @Output() edit = new EventEmitter<number>();
 
   userId : number | undefined;
   constructor(private userService: loggedInUserService) {}
@@ -26,5 +27,8 @@ export class NewsCardComponent implements OnInit{
 }
 DeleteNews(){
   this.delete.emit(this.news.id);
+}
+EditNews(){
+  this.edit.emit(this.news.id);
 }
 }

@@ -1,11 +1,13 @@
 <div class="AddNews">
-    <h6 class="poppins-bold">Add News</h6>
+    <h6 class="poppins-bold" *ngIf="!edit">Add News</h6>
+    <h6 class="poppins-bold" *ngIf="edit">Edit News</h6>
     <div class="AddNewsContainer">
-
+      
         <label for="NewsTitle">News Title</label>
-        <input #NewsTitle id="NewsTitle" required >
+        <input #NewsTitle id="NewsTitle" value= {{newsTitle}} required >
         <label for="NewsDescription">News Description</label>
-        <textarea #NewsDescription id="NewsDescription" required></textarea>
-        <button (click)="AddNews(NewsTitle,NewsDescription)" >Add</button>
+        <textarea #NewsDescription id="NewsDescription" value= {{newsDescription}} required></textarea>
+        <button (click)="AddNews(NewsTitle,NewsDescription)" *ngIf="!edit">Add</button>
+        <button (click)="EditNews(NewsTitle,NewsDescription)" *ngIf="edit">Edit</button>
     </div>
 </div>
