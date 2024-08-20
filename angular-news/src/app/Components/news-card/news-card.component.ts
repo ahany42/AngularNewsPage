@@ -1,4 +1,4 @@
-import { Component,Input,OnInit, Output } from '@angular/core';
+import { Component,Input,OnInit, Output ,EventEmitter } from '@angular/core';
 import { News } from 'src/app/news';
 import { loggedInUserService } from 'src/app/logged-in-user.service';
 import { User } from 'src/app/user';
@@ -10,7 +10,8 @@ import { User } from 'src/app/user';
 export class NewsCardComponent implements OnInit{
   @Input() news!:News;
   @Input() MyNews!:boolean;
-  @Output() NewsList! : News[];
+  @Output() delete = new EventEmitter<number>();
+
   userId : number | undefined;
   constructor(private userService: loggedInUserService) {}
   ngOnInit(): void {
@@ -23,16 +24,7 @@ export class NewsCardComponent implements OnInit{
       }
     );
 }
- async DeleteNews(id:number){
-  try {
-    const response = await fetch(`http://localhost:3004/news/delete/${id}`, {
-      method: 'DELETE',
-    });
-    if (!response.ok) {
-      throw new Error(`Error: ${response.statusText}`);
-    }
-  } catch (error) {
-    console.error('Error deleting item:', error);
-  }
+DeleteNews(){
+  this.delete.emit(this.news.id);
 }
 }

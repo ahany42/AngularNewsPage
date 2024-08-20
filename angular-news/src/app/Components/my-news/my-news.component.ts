@@ -19,4 +19,21 @@ export class MyNewsComponent implements OnInit{
   }
   )
  }
+ async DeleteNews(id:number){
+  console.log("called");
+   this.data = this.data.filter(news=>news.id!==id);
+   try {
+    const response = await fetch(`http://localhost:3004/news/delete/${id}`, {
+      method: 'DELETE',
+    });
+    if (!response.ok) {
+      throw new Error(`Error: ${response.statusText}`);
+    }
+    else{
+      console.log("Deleted Successfully");
+    }
+  } catch (error) {
+    console.error('Error deleting item:', error);
+  }
+ }
 }

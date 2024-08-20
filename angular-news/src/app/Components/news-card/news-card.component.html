@@ -1,12 +1,23 @@
 <div class="card NewsCard">
     <div class="card-header bg-dark text-light">
-        <img src={{news.avatar}} placeholder="User Avatar" class="UserAvatar"> 
-       {{news.title}}
+        <div class="CardSubHeader">
+            <h6 class="poppins-bold"> {{news.date}}</h6>
+            <div class="UserInfo">
+                <img src={{news.avatar}} placeholder="User Avatar" class="UserAvatar"> 
+             <h6 class="text-light">{{news.userName}}</h6> 
+    
+            </div>
+        </div>
+       <h5 class="CardTitle">{{news.title}}</h5>
+          
+           
     </div>
-        <div class="card-body" [ngStyle]="{'background-color': news.color}">{{news.body}}
+        <div class="card-body" [ngStyle]="{'background-color': news.color}">
+          
+            {{news.body}}
         </div>
         <div class="card-footer"[ngStyle]="{'background-color': news.color}">
-        <button class="DeleteButton" (click)="DeleteNews(news.id)" *ngIf="userId === news.postedBy">Delete</button>
+        <button class="DeleteButton" (click)="DeleteNews()" *ngIf="userId === news.postedBy">Delete</button>
     </div>
   </div>
   

@@ -8,9 +8,9 @@ import { NewsService } from 'src/app/news.service';
 })
 export class NewsListComponent implements OnInit{
   data :News[]=[];
- constructor(private myNewsService :NewsService){}
+ constructor(private NewsService :NewsService){}
  ngOnInit():void{
-  this.myNewsService.getData().subscribe(
+  this.NewsService.getData().subscribe(
   (response)=>{
     this.data = response;
   },
@@ -18,5 +18,22 @@ export class NewsListComponent implements OnInit{
     console.error("Error Fetching Data",error);
   }
   )
+ }
+ async DeleteNews(id:number){
+  console.log("called");
+   this.data = this.data.filter(news=>news.id!==id);
+   try {
+    const response = await fetch(`http://localhost:3004/news/delete/${id}`, {
+      method: 'DELETE',
+    });
+    if (!response.ok) {
+      throw new Error(`Error: ${response.statusText}`);
+    }
+    else{
+      console.log("Deleted Successfully");
+    }
+  } catch (error) {
+    console.error('Error deleting item:', error);
+  }
  }
 }

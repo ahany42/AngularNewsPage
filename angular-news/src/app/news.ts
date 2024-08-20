@@ -6,4 +6,5 @@ export interface News {
     color: string;
     postedBy: number;
     avatar:string;
+    userName:string;
 }

@@ -11,7 +11,9 @@ import { HomeComponent } from './Components/home/home.component';
 import { NewsCardComponent } from './Components/news-card/news-card.component';
 import { NewsListComponent } from './Components/news-list/news-list.component';
 import { HttpClientModule } from '@angular/common/http';
-import { PlaceholderComponent } from './Components/placeholder/placeholder.component';  
+import { PlaceholderComponent } from './Components/placeholder/placeholder.component';
+import { AddNewsComponent } from './Components/add-news/add-news.component';
+import { AddNewsButtonComponent } from './Components/add-news-button/add-news-button.component';  
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,9 @@ import { PlaceholderComponent } from './Components/placeholder/placeholder.compo
     HomeLayoutComponent,
     NewsCardComponent,
     NewsListComponent,
-    PlaceholderComponent
+    PlaceholderComponent,
+    AddNewsComponent,
+    AddNewsButtonComponent
   ],
   imports: [
     BrowserModule,
