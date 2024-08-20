@@ -19,7 +19,7 @@ export class AddNewsComponent {
   newsTitle: string = '';
   newsDescription: string = '';
   constructor(private http: HttpClient,private router:Router) {}
-  AddNews(NewsTitle:HTMLInputElement,NewsDescription:HTMLInputElement) {
+  AddNews(NewsTitle:HTMLInputElement,NewsDescription:HTMLTextAreaElement) {
     if(NewsTitle.value && NewsDescription.value){
       const newNews = {
         id:Date.now(),
