@@ -7,7 +7,7 @@ import { News } from './news';
 })
 export class MyNewsService {
 
-  private apiUrl = 'http://localhost:3004/news/myNews/3'; 
+  private apiUrl = 'https://blog-website-express-five.vercel.app/news/myNews/3'; 
 
   constructor(private http: HttpClient) { }
 

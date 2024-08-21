@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class EditNews {
-  private apiUrl = 'https:http://localhost:3004/news/edit/'; // Replace with your API URL
+  private apiUrl = 'https://blog-website-express-five.vercel.app/news/edit/'; 
 
   constructor(private http: HttpClient) {}
   updateResource(id: number, data: any): Observable<any> {

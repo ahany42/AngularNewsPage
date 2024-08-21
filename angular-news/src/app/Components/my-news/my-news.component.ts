@@ -25,7 +25,7 @@ export class MyNewsComponent implements OnInit{
   console.log("called");
    this.data = this.data.filter(news=>news.id!==id);
    try {
-    const response = await fetch(`http://localhost:3004/news/delete/${id}`, {
+    const response = await fetch(`https://blog-website-express-five.vercel.app/news/delete/${id}`, {
       method: 'DELETE',
     });
     if (!response.ok) {

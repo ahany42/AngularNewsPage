@@ -13,7 +13,7 @@ export class AddNewsComponent implements OnInit {
   @Input() id: number | null = null;
  ngOnInit() {
   if(this.id!==null){
-    this.http.get(`http://localhost:3004/news/${this.id}`)
+    this.http.get(`https://blog-website-express-five.vercel.app/news/${this.id}`)
     .subscribe(response=> {
       console.log('Got News successfully:', response);
       let newsToBeEdited = response as News;
@@ -48,7 +48,7 @@ export class AddNewsComponent implements OnInit {
         userName: "Aly Hany"
         
       };
-      this.http.post('http://localhost:3004/news/add', newNews)
+      this.http.post('https://blog-website-express-five.vercel.app/news/add', newNews)
       .subscribe(response => {
         console.log('News added successfully:', response);
       }, error => {
@@ -63,15 +63,13 @@ export class AddNewsComponent implements OnInit {
     }
   }
   EditNews(NewsTitle:HTMLInputElement,NewsDescription:HTMLTextAreaElement){
-      NewsTitle.value = this.newsTitle;
-      NewsDescription.value = this.newsDescription;
     if(NewsTitle.value && NewsDescription.value){
       const editedNews = {
-       title:NewsTitle.value,
+       title: NewsTitle.value ,
        body:NewsDescription.value
       };
     
-      this.http.patch(`http://localhost:3004/news/edit/${this.id}`, editedNews )
+      this.http.patch(`https://blog-website-express-five.vercel.app/news/edit/${this.id}`, editedNews )
       .subscribe(response => {
         console.log('News edited successfully:', response);
       }, error => {

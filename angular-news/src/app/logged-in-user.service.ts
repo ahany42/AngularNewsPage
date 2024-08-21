@@ -7,7 +7,7 @@ import {User} from './user';
 })
 export class loggedInUserService {
 
-  private apiUrl = 'http://localhost:3004/users/loggedInUser'; 
+  private apiUrl = 'https://blog-website-express-five.vercel.app/users/loggedInUser'; 
 
   constructor(private http: HttpClient) { }
 
