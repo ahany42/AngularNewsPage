@@ -6,7 +6,7 @@ import { API } from './Components/api';
   providedIn: 'root'
 })
 export class EditNews {
-  private apiUrl = `${API.baseUrl}/news/edit/`; 
+  private apiUrl = `${API.baseUrl}news/edit/`; 
 
   constructor(private http: HttpClient) {}
   updateResource(id: number, data: any): Observable<any> {

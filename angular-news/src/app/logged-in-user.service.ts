@@ -8,7 +8,7 @@ import { API } from './Components/api';
 })
 export class loggedInUserService {
 
-  private apiUrl = `${API.baseUrl}/users/loggedInUser`; 
+  private apiUrl = `${API.baseUrl}users/loggedInUser`; 
 
   constructor(private http: HttpClient) { }
 

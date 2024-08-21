@@ -8,7 +8,7 @@ import { API } from './Components/api';
 })
 export class NewsService {
 
-  private apiUrl = `${API.baseUrl}/news/getAll`; 
+  private apiUrl = `${API.baseUrl}news/getAll`; 
 
   constructor(private http: HttpClient) { }
 

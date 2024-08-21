@@ -25,7 +25,7 @@ export class NewsListComponent implements OnInit{
   console.log("called");
    this.data = this.data.filter(news=>news.id!==id);
    try {
-    const response = await fetch(`${API.baseUrl}/news/delete/${id}`, {
+    const response = await fetch(`${API.baseUrl}news/delete/${id}`, {
       method: 'DELETE',
     });
     if (!response.ok) {
