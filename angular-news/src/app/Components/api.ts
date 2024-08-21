@@ -1,5 +1,5 @@
 export class API {
-   
-    static baseUrl:string ="http://localhost:3004/";
+    static baseUrl:string ="https://news-express-apis.vercel.app/";
+    // static baseUrl:string ="http://localhost:3004/";
 
 }
