@@ -21,23 +21,21 @@ export class NewsListComponent implements OnInit{
   }
   )
  }
- async DeleteNews(id:number){
-  console.log("called");
-   this.data = this.data.filter(news=>news.id!==id);
-   try {
+ async DeleteNews(id: number) {
+  try {
     const response = await fetch(`${API.baseUrl}news/delete/${id}`, {
       method: 'DELETE',
     });
     if (!response.ok) {
       throw new Error(`Error: ${response.statusText}`);
     }
-    else{
-      console.log("Deleted Successfully");
-    }
+    this.data = this.data.filter(news => news.id !== id);
+    console.log("Deleted Successfully");
   } catch (error) {
     console.error('Error deleting item:', error);
   }
- }
+}
+
  EditNews(id: number) {
   this.router.navigate([`/editnews/${id}`]);
 }

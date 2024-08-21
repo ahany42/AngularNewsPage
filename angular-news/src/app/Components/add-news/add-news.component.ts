@@ -14,7 +14,7 @@ export class AddNewsComponent implements OnInit {
   @Input() id: number | null = null;
  ngOnInit() {
   if(this.id!==null){
-    this.http.get(`${API.baseUrl}/news/${this.id}`)
+    this.http.get(`${API.baseUrl}news/${this.id}`)
     .subscribe(response=> {
       console.log('Got News successfully:', response);
       let newsToBeEdited = response as News;
@@ -57,25 +57,27 @@ export class AddNewsComponent implements OnInit {
       });
       NewsTitle.value="";
       NewsDescription.value="";
+      console.log("added");
       this.router.navigate(['/MyNews']);
     }
     else{
       alert("Please Fill All Fields");
     }
   }
-  EditNews(NewsTitle:HTMLInputElement,NewsDescription:HTMLTextAreaElement){
+  async EditNews(NewsTitle:HTMLInputElement,NewsDescription:HTMLTextAreaElement){
     if(NewsTitle.value && NewsDescription.value){
       const editedNews = {
        title: NewsTitle.value ,
        body:NewsDescription.value
       };
     
-      this.http.patch(`${API.baseUrl}news/edit/${this.id}`, editedNews )
+      await this.http.patch(`${API.baseUrl}news/edit/${this.id}`, editedNews )
       .subscribe(response => {
         console.log('News edited successfully:', response);
       }, error => {
         console.error('Error editing news:', error);
       });
+      console.log("edited");
       this.router.navigate(['/MyNews']);
     }
     else{

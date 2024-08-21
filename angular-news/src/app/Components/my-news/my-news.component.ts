@@ -23,7 +23,6 @@ export class MyNewsComponent implements OnInit{
   )
  }
  async DeleteNews(id:number){
-  console.log("called");
    this.data = this.data.filter(news=>news.id!==id);
    try {
     const response = await fetch(`${API.baseUrl}news/delete/${id}`, {
@@ -38,6 +37,7 @@ export class MyNewsComponent implements OnInit{
   } catch (error) {
     console.error('Error deleting item:', error);
   }
+  console.log("deleted");
  }
 
   EditNews(id: number) {
