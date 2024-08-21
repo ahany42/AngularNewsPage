@@ -40,4 +40,5 @@ import { EditNewsComponent } from './Components/edit-news/edit-news.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+ }

@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { News } from './news';
+import { API } from './Components/api';
 @Injectable({
   providedIn: 'root'
 })
 export class MyNewsService {
 
-  private apiUrl = 'https://blog-website-express-five.vercel.app/news/myNews/3'; 
+  private apiUrl = `${API.baseUrl}/news/myNews/3`; 
 
   constructor(private http: HttpClient) { }
 

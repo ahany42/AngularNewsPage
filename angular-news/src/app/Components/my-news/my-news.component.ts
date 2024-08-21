@@ -2,6 +2,7 @@ import { Component,OnInit,Input} from '@angular/core';
 import { News } from 'src/app/news';
 import { MyNewsService} from 'src/app/my-news.service';
 import { Router } from '@angular/router';
+import { API } from '../api';
 @Component({
   selector: 'app-my-news',
   templateUrl: './my-news.component.html',
@@ -25,7 +26,7 @@ export class MyNewsComponent implements OnInit{
   console.log("called");
    this.data = this.data.filter(news=>news.id!==id);
    try {
-    const response = await fetch(`https://blog-website-express-five.vercel.app/news/delete/${id}`, {
+    const response = await fetch(`${API.baseUrl}/news/delete/${id}`, {
       method: 'DELETE',
     });
     if (!response.ok) {
